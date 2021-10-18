@@ -6,20 +6,18 @@ public class ATM {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner (System.in);
-		int n = sc.nextInt();
-		int[] time = new int[n];
-		int sum = 0;
+		int t = sc.nextInt();
 		
-		for (int i = 0 ; i < n ; i ++) {
-			time[i] = sc.nextInt();
-		}
+		for(int i = 0 ; i<t; i++) {
+		int r = sc.nextInt();
+		String s = sc.next();
 		
-		Arrays.sort(time);
 		
-		for(int i = 0 ; i<n;i++) {	
-		for(int j = 0 ; j <=i ; j ++) {
-			sum += time[j];
+		for(int j = 0 ; j < s.length(); j++) {
+			for(int x = 0 ; x<r; x++) {
+				System.out.printf("%c", s.charAt(j));
+			}
 		}
-		}
-		System.out.println(sum);
-}}
+System.out.println();
+		}}
+}
