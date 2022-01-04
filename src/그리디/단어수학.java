@@ -1,46 +1,38 @@
 package 그리디;
 import java.io.*;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.*;
+
 public class 단어수학 {
 
 	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader (new InputStreamReader (System.in));
 		int n = Integer.parseInt(br.readLine());
-		String [] st = new String[n];
-		int [] al = new int[26];
-		int a=65;
-		
-		for(int i = 0 ; i < 26 ;i++) {
-			al[i] = 0;
-			a++;
-		}
-		
-		for(int i = 0 ; i<n; i++) {
-		st[i] = br.readLine();
-		}
-		
-		Arrays.sort(st, Collections.reverseOrder());
-		int num = 9;
-		int [] sum = new int[n];
-		
+		String [] arr = new String[n];
 		for(int i = 0 ; i < n ; i++) {
-			for (int j = 0 ; j < st[i].length();j++) {
-				sum[i] = (int) (sum[i] + ((st[i].charAt(j)-st[i].charAt(j) +num)*Math.pow(10, (st[i].length()-1)-j)));
-				if()
-				
-			}
-			
-			}
-		for(int i = 0 ; i < n ; i++) {
-			System.out.println(sum[i]);
+			arr[i] = br.readLine();
 		}
+		int []alpha =new int [26];
 		
-	}}
+		 for(int i=0; i<n; i++){
+	            int temp = (int)Math.pow(10,arr[i].length()-1);
+	            for(int j=0; j<arr[i].length(); j++){
+	                alpha[(int)arr[i].charAt(j)-65]+=temp;
+	                temp /=10;
+	            }
+	        }
 
-		
-		
-		
-		
-	
+	        Arrays.sort(alpha);
+	        int index = 9;
+	        int sum =0;
+	        for(int i=alpha.length-1; i>=0; i--){
+	            if(alpha[i] == 0){
+	                break;
+	            }
+	            sum+= alpha[i]*index;
+	            index--;
+	        }
+	        System.out.println(sum);
+	    }
+	}
+
 
